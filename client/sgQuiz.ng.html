@@ -1,0 +1,45 @@
+<div class="quiz-playboard" ng-controller="SgQuizController as vm">
+
+  <div class="quiz-header" layout="row" layout-padding>
+    <div flex layout="column">
+      <div class="quiz-num"> Quiz :  {{vm.quiz.id + 1}} </div>
+      <div class="quiz-title">  {{vm.quiz.data.title}} </div>
+      <!-- <div ng-show="vm.isFirstQuiz(vm.quiz.id)">  -First </div>
+      <div ng-show="vm.isLastQuiz(vm.quiz.id)">   -Last </div> -->
+    </div>
+    <div flex class="quiz-progressbar" layout="row" layout-align="end center">
+      <div>Progress bar</div>
+      <md-button ng-click="vm.back()"> Back </md-button>
+      <md-button ng-click="vm.next()"> Next </md-button>
+    </div>
+  </div>
+
+  <md-divider></md-divider>
+
+  <div class="quiz-body">
+    <div ng-repeat="content in vm.quiz.data.content" >
+      <div layout="row" layout-sm="column" layout-align="{{content.align}}">
+        <div ng-repeat="item in content.items" ng-switch on="item.type" >
+          <div flex ng-switch-when="text" ng-bind-html="item.src"> </div>
+          <div flex ng-switch-when="image">
+            <img ng-src="{{item.src}}" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="quiz-option">
+    <md-checkbox ng-repeat="option in vm.quiz.data.option"
+                 ng-model="option.value">
+      {{option.label}}
+    </md-checkbox>
+  </div>
+
+  <md-divider></md-divider>
+
+  <div class="quiz-footer">
+    <md-button ng-click="vm.checkResult()"> Check Result </md-button>
+  </div>
+
+</div>
