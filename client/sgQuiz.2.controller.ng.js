@@ -14,10 +14,13 @@
     // using custom service
 
     vm.quiz = $quizService.getQuiz();
+    vm.quizCount = $quizService.quizCount;
     vm.next = $quizService.nextQuiz;
     vm.back = $quizService.previousQuiz;
     vm.isFirstQuiz = $quizService.isFirstQuiz;
     vm.isLastQuiz = $quizService.isLastQuiz;
+    vm.isCurrentQuiz = $quizService.isCurrentQuiz;
+    vm.isCompleteQuiz = $quizService.isCompleteQuiz;
 
     vm.checkResult = checkResult;
 

@@ -8,7 +8,14 @@
       <div ng-show="vm.isLastQuiz(vm.quiz.id)">   -Last </div> -->
     </div>
     <div flex class="quiz-progressbar" layout="row" layout-align="end center">
-      <div>Progress bar</div>
+      <div class="circle circle-border circle-queue"
+           ng-repeat="n in [ vm.quizCount() ] | range"
+           ng-class="{
+             'circle-current': vm.isCurrentQuiz($index),
+             'circle-done' : vm.isCompleteQuiz($index)
+           }"
+      >
+      </div>
       <md-button ng-click="vm.back()"> Back </md-button>
       <md-button ng-click="vm.next()"> Next </md-button>
     </div>

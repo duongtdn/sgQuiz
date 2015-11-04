@@ -1,0 +1,39 @@
+.circle {
+    margin-left: 2px;
+    margin-right: 2px;
+    border-radius: 50%;
+    width: 10px;
+    position: relative;
+    display: inline-block;
+}
+
+.circle-border {
+    border: 0px solid black;
+}
+
+.circle-done{
+    background-color: #00bfff !important;
+}
+
+.circle-queue{
+    background-color: grey;
+}
+
+.circle-current{
+    background-color: orange !important;
+}
+
+.circle:before {
+    content: "";
+    display: block;
+    padding-top: 100%;
+}
+
+.circle-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    text-align: center;
+}
